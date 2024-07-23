@@ -1,0 +1,14 @@
+192.168.1.7 - - [16/Dec/2023:09:00:45 +0530] "GET /inventory/ HTTP/1.1" 200 2814
+192.168.1.7 - - [16/Dec/2023:09:00:45 +0530] "GET /inventory/assets/css/bootstrap.css HTTP/1.1" 404 797
+192.168.1.7 - - [16/Dec/2023:09:00:45 +0530] "GET /inventory/assets/css/font-awesome.css HTTP/1.1" 404 800
+192.168.1.7 - - [16/Dec/2023:09:00:45 +0530] "GET /inventory/images/login_bg.jpg HTTP/1.1" 404 788
+192.168.1.7 - - [16/Dec/2023:09:00:45 +0530] "GET /inventory/assets/css/custom.css HTTP/1.1" 404 794
+192.168.1.7 - - [16/Dec/2023:09:00:45 +0530] "GET /inventory/assets/css/icomoon.css HTTP/1.1" 404 795
+192.168.1.7 - - [16/Dec/2023:09:00:45 +0530] "GET /inventory/images/login_lgo.png HTTP/1.1" 404 789
+192.168.1.7 - admin [16/Dec/2023:09:00:53 +0530] "POST /inventory/j_security_check HTTP/1.1" 303 -
+192.168.1.7 - admin [16/Dec/2023:09:00:53 +0530] "GET /inventory/ HTTP/1.1" 200 12553
+192.168.1.7 - admin [16/Dec/2023:09:00:53 +0530] "GET /inventory/assets/css/demo/style.css HTTP/1.1" 304 -
+192.168.1.7 - admin [16/Dec/2023:09:00:53 +0530] "GET /inventory/assets/css/demo/xgrid.css HTTP/1.1" 304 -
+192.168.1.7 - admin [16/Dec/2023:09:00:53 +0530] "GET /inventory/js/newscreen.js HTTP/1.1" 304 -
+192.168.1.7 - admin [16/Dec/2023:09:00:53 +0530] "GET /inventory/service/ajax?ic=0&id=userdefbranch,userbranch HTTP/1.1" 200 184
+192.168.1.7 - admin [16/Dec/2023:09:00:53 +0530] "GET /inventory/service/ajax?ic=0&id=usermenu&login_id=admin HTTP/1.1" 200 6136

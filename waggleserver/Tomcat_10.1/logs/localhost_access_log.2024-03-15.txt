@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [15/Mar/2024:10:43:01 +0530] "GET /inventory/ HTTP/1.1" 200 10621
+0:0:0:0:0:0:0:1 - - [15/Mar/2024:10:43:01 +0530] "GET /inventory/assets/css/bootstrap.css HTTP/1.1" 404 797
+0:0:0:0:0:0:0:1 - - [15/Mar/2024:10:43:01 +0530] "GET /inventory/assets/css/custom.css HTTP/1.1" 404 794
+0:0:0:0:0:0:0:1 - - [15/Mar/2024:10:43:01 +0530] "GET /inventory/assets/css/icomoon.css HTTP/1.1" 404 795
+0:0:0:0:0:0:0:1 - - [15/Mar/2024:10:43:01 +0530] "GET /inventory/assets/css/font-awesome.css HTTP/1.1" 404 800
+0:0:0:0:0:0:0:1 - admin [15/Mar/2024:10:43:15 +0530] "POST /inventory/j_security_check HTTP/1.1" 303 -
+0:0:0:0:0:0:0:1 - admin [15/Mar/2024:10:43:15 +0530] "GET /inventory/ HTTP/1.1" 200 13696
+0:0:0:0:0:0:0:1 - admin [15/Mar/2024:10:43:15 +0530] "GET /inventory/service/ajax?ic=0&id=userdefbranch,userbranch HTTP/1.1" 200 184
+0:0:0:0:0:0:0:1 - admin [15/Mar/2024:10:43:15 +0530] "GET /inventory/service/ajax?ic=0&id=usermenu&login_id=admin HTTP/1.1" 200 6232
+0:0:0:0:0:0:0:1 - admin [15/Mar/2024:10:43:20 +0530] "GET /inventory/product.do HTTP/1.1" 200 24363
+0:0:0:0:0:0:0:1 - admin [15/Mar/2024:10:43:20 +0530] "GET /inventory/js/popper.min.js.map HTTP/1.1" 404 789
+0:0:0:0:0:0:0:1 - admin [15/Mar/2024:10:43:20 +0530] "GET /inventory/service/screen?screencode=110003 HTTP/1.1" 200 39725
+0:0:0:0:0:0:0:1 - admin [15/Mar/2024:10:43:21 +0530] "GET /inventory/service/report/metadata?id=8undefined HTTP/1.1" 200 2844
+0:0:0:0:0:0:0:1 - admin [15/Mar/2024:10:43:21 +0530] "GET /inventory/service/ajax?ic=0&id=actions&menuid=110003 HTTP/1.1" 200 158
+0:0:0:0:0:0:0:1 - admin [15/Mar/2024:10:43:21 +0530] "GET /inventory/service/report/data?id=8undefined&_search=false&nd=1710479601074&rows=25&page=1&sidx=a.pm_name&sord=asc&totalrows= HTTP/1.1" 200 5566

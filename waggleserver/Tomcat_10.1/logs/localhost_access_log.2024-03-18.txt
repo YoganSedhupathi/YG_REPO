@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:10:58:39 +0530] "GET /inventory HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:10:58:39 +0530] "GET /inventory/ HTTP/1.1" 200 10621
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:10:58:39 +0530] "GET /inventory/assets/css/custom.css HTTP/1.1" 404 794
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:10:58:39 +0530] "GET /inventory/assets/css/font-awesome.css HTTP/1.1" 404 800
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:10:58:39 +0530] "GET /inventory/assets/css/bootstrap.css HTTP/1.1" 404 797
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:10:58:39 +0530] "GET /inventory/assets/css/icomoon.css HTTP/1.1" 404 795
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:10:58:39 +0530] "GET /inventory/images/cissol_logo.png HTTP/1.1" 200 9092
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:10:58:39 +0530] "GET /inventory/images/q_svg.svg HTTP/1.1" 200 5366
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:10:58:39 +0530] "GET /inventory/images/titleicon.gif HTTP/1.1" 200 1161
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:11:01:44 +0530] "GET /inventory HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:11:01:44 +0530] "GET /inventory/ HTTP/1.1" 200 10621
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:11:01:44 +0530] "GET /inventory/assets/css/bootstrap.css HTTP/1.1" 404 797
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:11:01:44 +0530] "GET /inventory/assets/css/icomoon.css HTTP/1.1" 404 795
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:11:01:44 +0530] "GET /inventory/assets/css/font-awesome.css HTTP/1.1" 404 800
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:11:01:44 +0530] "GET /inventory/assets/css/custom.css HTTP/1.1" 404 794

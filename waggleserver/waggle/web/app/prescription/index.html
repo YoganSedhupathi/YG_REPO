@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=2, maximum-scale=2, minimum-scale=2, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="shortcut icon" href="../../images/titleicon.gif">
+  		<link rel="icon" href="../../images/titleicon.gif">
+        <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5.min.css" />
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>		
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery-ui-timepicker-addon.js"></script>
+		<script src="js/jquery-ui-sliderAccess.js"></script>		
+		<script src="js/inputvalidation.js"></script>
+		<script src="js/ajax.js"></script>
+		<script src="/Fruits/js/jqgrid/i18n/grid.locale-en.js"></script>
+		<script src="/Fruits/js/jqgrid/jquery.jqGrid.min.js"></script>
+		<script type="text/javascript" src="/Fruits/js/jqimpl.js"></script>
+		
+		<link rel="stylesheet" href="../../css/jqgrid/ui.jqgrid.css" type="text/css"/>				
+		<link href="css/jquery-ui.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	    <link href="css/themify-icons.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">		
+        <title>CISSOL Technologies - Prescription</title>
+    </head>
+    <body>
+	<div data-role="page" id="login">
+	   <div class="container">
+   			<!--headerlogin-->
+   			<div class="bckBlu">
+   			<div class="text-center "><img src="images/login_lgo.png" height="100"></div>
+   			</div>
+   			<!--login-->
+   			<div class="col-md-12 col-xs-12">
+   				<div class="marAjTop">
+   					<div class="col-md-1 col-xs-1"></div>   
+   					<div class="col-md-10 col-xs-10">
+   						<div class="input-group input-group-lg">
+      					<span class="input-group-addon bgTr"><span class="ti-user"></span></span>
+      					<input type="text" id="user" class="form-control" placeholder="Username">
+    					</div>
+   					</div>
+    				<div class="col-md-1 col-xs-1 "></div>
+    				</div>
+    				<div class="clearfix"></div>
+    				<div class="marAjTop1">
+     					<div class="col-md-1 col-xs-1"></div>   
+   						<div class="col-md-10 col-xs-10">
+   							<div class="input-group input-group-lg">
+      						<span class="input-group-addon bgTr"><span class="ti-unlock"></span></span>
+      						<input type="password" id="password" class="form-control" placeholder=".....">
+    						</div>
+   					</div>
+				    <div class="col-md-1 col-xs-1"></div>
+    		</div>
+    		<div class="clearfix"></div>
+    		<div class="marAjTop1">
+     		<div class="col-md-1 col-xs-1"></div>
+    		<div class="col-md-10 col-xs-10 mpZ text-center">
+        		<div class="col-md-12 col-xs-12"><button class="btn btn-default loginBut" type="button" onclick="app.loginVerification()" data-toggle="dropdown">Login</button></div> 
+        	</div> 
+     		<div class="col-md-1 col-xs-1"></div>
+	    </div>
+	</div>
+    <div class="footer">
+    <div class="footerIn text-center fooCol"> &copy; CISSOL</div>
+    </div>
+   </div> 
+	</div>
+
+	<div data-role="page" id="menupage">
+     <div class="container">
+   		<!--headerlogin-->
+   		<div class="bckBlu">
+   		<div class="text-center "><img src="images/login_lgo.png" height="100"></div>
+   		</div>
+	   <div class="col-md-12 col-xs-12">
+	   <div class="text-center">
+		    <div class="well" style="max-width: 400px; margin: 50px auto 10px;">
+      			<button type="button" class="btn btn-info btn-lg btn-block" id="btnPatientReg" onclick="app.showPatientRegistration()">Patient Registration</button>
+      			<button type="button" class="btn btn-default btn-lg btn-block" id="btnDoctorVisit" onclick="app.showVisitLists('doctorconsole')">Visits</button>
+      			<button type="button" class="btn btn-default btn-lg btn-block" id="btnAppointments" onclick="app.showPatientAppointments()">Patient Appointments</button>
+      			<button type="button" class="btn btn-default btn-lg btn-block" id="btnDoctorConsole" onclick="app.showDoctorConsole()">Doctor Console</button>
+      			<button type="button" class="btn btn-default btn-lg btn-block" id="btnDoctorProducts" onclick="app.showDoctorProducts()">Doctor Products</button>
+      			<button type="button" class="btn btn-default btn-lg btn-block" id="btnLogOut" onclick="app.logout()">Logout</button>
+    		</div>
+    	</div>
+    </div>
+    <div class="footer">
+    	<div class="footerIn text-center fooCol"> &copy; CISSOL</div>
+    </div>
+    </div> 
+	</div>
+	<div data-role="page" id="doctorproducts">
+		<div class="container">
+			<div class="headerBx">
+  					<div class="col-md-2 col-xs-2">
+  						<span class="ti-angle-left ic1CoTx" onclick="$.mobile.changePage($('#menupage'));"></span>
+    				</div>
+    				<div class="col-md-8 col-xs-8 text-center fotSizBg">Doctor Products</div>
+    				<div class="col-md-2 col-xs-2 text-right">
+    				</div>
+  			</div>
+  			<div class="clearfix></div>
+  			<div class="col-md-12 col-xs-12 mpZ mrTop" data-role="none" style="margin-left:5%;margin-top:5%;height:100%;width:70%;overflow:auto">
+  				<div id="dproducts" style='position:relative;border:0px;display:block;width:900px;' class="mTBx">
+        		</div>
+  			</div>
+		</div>
+	</div>
+	<div data-role="page" id="patientregistration">
+	   <div class="container">
+   			<!--headerlogin-->
+				<div class="headerBx">
+  					<div class="col-md-2 col-xs-2">
+  						<span class="ti-angle-left ic1CoTx" onclick="$.mobile.changePage($('#menupage'));"></span>
+    				</div>
+    				<div class="col-md-8 col-xs-8 text-center fotSizBg">Patient Registration</div>
+    				<div class="col-md-2 col-xs-2 text-right">
+    				</div>
+  				</div>   			
+  			<!--login-->
+  			<div class="clearfix"></div>
+   			<div class="col-md-12 col-xs-12">
+				<div class="marAjTop" style="margin-top:90px">
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group mbotto">
+							<label for="patientname">Name</label>
+  							<input type="text" id="patientname" class="form-control" placeholder="Name" inputType="ALPHANUMERIC"  decimal="0" mandatory="1"   maxlength="50" onkeydown='return validate(this,event)'>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="patientage">Age</label>
+  							<input type="text" id="patientage" class="form-control" placeholder="Age" inputType="NUMERIC"  decimal="0" mandatory="1"   maxlength="50" onkeydown='return validate(this,event)'>							
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="gender">Gender</label>
+							<select data-role="none" id="gender" class="form-control"><option value="M">Male</option><option value="F">Female</option></select></div>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="mobileno">Mobile</label>
+  							<input type="text" id="mobileno" class="form-control" placeholder="Mobile" inputType="NUMERIC"  decimal="0" mandatory="1"   maxlength="10" onkeydown='return validate(this,event)'>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>				
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="city">City</label>
+  							<input type="text" id="city" class="form-control" placeholder="City" inputType="ALPHANUMERIC"  decimal="0" mandatory="1"   maxlength="50" onkeydown='return validate(this,event)'>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+	    			<div class="marAjTop1">
+	     				<div class="col-md-1 col-xs-1"></div>
+	    					<div class="col-md-10 col-xs-10 mpZ text-center">
+	        				<div class="col-md-12 col-xs-12"><button class="btn btn-default loginBut" type="button" onclick="app.registerPatient()" data-toggle="dropdown">Register</button></div> 
+	        			</div> 
+	     				<div class="col-md-1 col-xs-1"></div>
+		        	</div>
+			</div>
+    		<div class="footer">
+    			<div class="footerIn text-center fooCol"> &copy; CISSOL</div>
+      		</div>
+    	</div> 
+	</div>
+	<div data-role="page" id="selecthospital">
+		<div class="container">
+   			<!--headerlogin-->
+				<div class="headerBx">
+  					<div class="col-md-2 col-xs-2">
+  						<span class="ti-angle-left ic1CoTx" onclick="$.mobile.changePage($('#menupage'));"></span>
+    				</div>
+    				<div class="col-md-8 col-xs-8 text-center fotSizBg">Select Hospital</div>
+    				<div class="col-md-2 col-xs-2 text-right">
+    				</div>
+  				</div>   			
+  			<!--login-->
+  			<div class="clearfix"></div>	
+			<div class="col-md-12 col-xs-12 mpZ mrTop">
+    			<div class="listTp" id="hospitallist" style=" margin-left:20px;margin-right:20px;">
+    				<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+				    	<div class="col-md-8 col-xs-8">
+      					<h3 class="prhead">Tiruvarur Medical Center</h3>
+      					</div>
+      					<div class="col-md-4 col-xs-4 padAdj text-right">
+      						<div><button type="button" class="btn btn-info" >Select</button>
+				    		</div>
+				    	</div>  
+				    </div>
+				    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+				    	<div class="col-md-8 col-xs-8">
+      					<h3 class="prhead">Tiruvarur Clinical Center</h3>
+      					</div>
+      					<div class="col-md-4 col-xs-4 padAdj text-right">
+      						<div><button type="button" class="btn btn-danger" >Select</button>
+				    		</div>
+				    	</div>  
+				    </div>
+				    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+				    	<div class="col-md-8 col-xs-8">
+      					<h3 class="prhead">Kovai Medical Center</h3>
+      					</div>
+      					<div class="col-md-4 col-xs-4 padAdj text-right">
+      						<div><button type="button" class="btn btn-info" >Select</button>
+				    		</div>
+				    	</div>  
+				    </div>
+      			</div>
+        	</div>
+        	<div class="footer">
+    			<div class="footerIn text-center fooCol"> &copy; CISSOL</div>
+      		</div>
+        </div>
+	</div>
+	<div data-role="page" id="selectdoctor">
+		<div class="container">
+   			<!--headerlogin-->
+				<div class="headerBx">
+  					<div class="col-md-2 col-xs-2">
+  						<span class="ti-angle-left ic1CoTx" onclick="$.mobile.changePage($('#menupage'));"></span>
+    				</div>
+    				<div class="col-md-8 col-xs-8 text-center fotSizBg">Select Doctor</div>
+    				<div class="col-md-2 col-xs-2 text-right">
+    				</div>
+  				</div>   			
+  			<!--login-->
+  			<div class="clearfix"></div>	
+			<div class="col-md-12 col-xs-12 mpZ mrTop">
+    			<div class="listTp" id="doctorlist" style=" margin-left:20px;margin-right:20px;">
+    				<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+				    	<div class="col-md-8 col-xs-8">
+      					<h3 class="prhead">Doctor Name 1</h3>
+      					</div>
+      					<div class="col-md-4 col-xs-4 padAdj text-right">
+      						<div><button type="button" class="btn btn-info" >Select</button>
+				    		</div>
+				    	</div>  
+				    </div>
+				    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+				    	<div class="col-md-8 col-xs-8">
+      					<h3 class="prhead">Doctor Name 2</h3>
+      					</div>
+      					<div class="col-md-4 col-xs-4 padAdj text-right">
+      						<div><button type="button" class="btn btn-danger" >Select</button>
+				    		</div>
+				    	</div>  
+				    </div>
+				    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+				    	<div class="col-md-8 col-xs-8">
+      					<h3 class="prhead">Doctor Name 3</h3>
+      					</div>
+      					<div class="col-md-4 col-xs-4 padAdj text-right">
+      						<div><button type="button" class="btn btn-info" >Select</button>
+				    		</div>
+				    	</div>  
+				    </div>
+      			</div>
+        	</div>
+        	<div class="footer">
+    			<div class="footerIn text-center fooCol"> &copy; CISSOL</div>
+      		</div>
+        </div>
+	</div>	
+	<div data-role="page" id="visitslist">
+		<div class="container">
+			<div class="headerBx">
+  					<div class="col-md-2 col-xs-2">
+  						<span class="ti-angle-left ic1CoTx" onclick="app.backFromVisitList()"></span>
+    				</div>
+    				<div class="col-md-8 col-xs-8 text-center fotSizBg">Visits</div>
+    				<div class="col-md-2 col-xs-2 text-right"><button class="btn btn-add" onclick="app.showCreateVisit()">Create</button>
+    				</div>
+  			</div>
+  			<div class="clearfix></div>
+  			<div class="col-md-12 col-xs-12 mpZ mrTop" data-role="none" style="margin-top:90px;height:450px;overflow:auto" id="visitdates" >
+  					<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+					    <div class="col-md-12 col-xs-12">
+  							<h3 class="prhead1">05/07/2015</h3>
+  							<div class="prTxt">Visit Info</div>
+      					</div>
+      				</div>
+      				<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+					    <div class="col-md-12 col-xs-12">
+  							<h3 class="prhead1">05/07/2015</h3>
+  							<div class="prTxt">Visit Info</div>
+      					</div>
+      				</div>  					      				  					
+  			</div>
+		</div>
+	</div>
+	<div data-role="page" id="visits">
+	   <div class="container">
+   			<!--headerlogin-->
+				<div class="headerBx">
+  					<div class="col-md-2 col-xs-2">
+  						<span class="ti-angle-left ic1CoTx" onclick="app.showVisitLists()"></span>
+    				</div>
+    				<div class="col-md-8 col-xs-8 text-center fotSizBg">Doctor Visit</div>
+    				<div class="col-md-2 col-xs-2 text-right">
+    				</div>
+  				</div>   			
+  			<!--login-->
+  			<div class="clearfix"></div>
+   			<div class="col-md-12 col-xs-12">
+				<div class="marAjTop" style="margin-top:90px">
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group mbotto">
+							<label for="hospitalname">Hospital</label>
+  							<input type="text" id="hospitalname" class="form-control" placeholder="Hospital" disabled inputType="ALPHANUMERIC"  decimal="0" mandatory="1"   maxlength="50" onkeydown='return validate(this,event)'>
+  							<input type="hidden" id="hospitalcode" class="form-control" placeholder="Code">
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>				
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group mbotto">
+							<label for="doctorname">Doctor Name</label>
+  							<input type="text" id="doctorname" class="form-control" placeholder="Name" disabled inputType="ALPHANUMERIC"  decimal="0" mandatory="1"   maxlength="50" onkeydown='return validate(this,event)'>
+  							<input type="hidden" id="doctorcode" class="form-control" placeholder="Code">
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="date">Date</label>
+  							<input type="text" id="visitdate" class="form-control" placeholder="Date">							
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="date">Session Starts From</label>
+  							<input type="text" id="fromtime" class="form-control" placeholder="From">							
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="date">Session Ends At</label>
+  							<input type="text" id="totime" class="form-control" placeholder="To">							
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+	    			<div class="marAjTop1">
+	     				<div class="col-md-1 col-xs-1"></div>
+	    					<div class="col-md-10 col-xs-10 mpZ text-center">
+	        				<div class="col-md-12 col-xs-12"><button class="btn btn-default loginBut" type="button" onclick="app.createVisit()" data-toggle="dropdown">Create Visit</button></div> 
+	        			</div> 
+	     				<div class="col-md-1 col-xs-1"></div>
+		        	</div>
+			</div>
+    		<div class="footer">
+    			<div class="footerIn text-center fooCol"> &copy; CISSOL</div>
+      		</div>
+    	</div> 
+	</div>
+    </div>
+	<div data-role="page" id="appointments">
+		<div class="container">
+   			<!--headerlogin-->
+				<div class="headerBx">
+  					<div class="col-md-2 col-xs-2">
+  						<span class="ti-angle-left ic1CoTx" onclick="app.showPatientList('appointments')"></span>
+    				</div>
+    				<div class="col-md-8 col-xs-8 text-center fotSizBg">Patient Appointment</div>
+    				<div class="col-md-2 col-xs-2 text-right">
+    				</div>
+  				</div>   			
+  			<!--login-->
+  			<div class="clearfix"></div>
+   			<div class="col-md-12 col-xs-12">
+				<div class="marAjTop" style="margin-top:90px">
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-5 col-xs-5">
+						<div class="form-group">
+							<label for="sdoctorname">Doctor Name</label>
+  							<input type="text" id="sdoctorname" class="form-control" placeholder="Doctor Name" disabled inputType="ALPHANUMERIC"  decimal="0" mandatory="1"   maxlength="50" onkeydown='return validate(this,event)'>
+  							<input type="hidden" id="sdoctorcode" class="form-control"/>
+						</div>
+					</div>
+					<div class="col-md-5 col-xs-5">
+						<div class="form-group">
+							<label for="svisitdate">Date</label>
+  							<input type="text" id="svisitdate" class="form-control" placeholder="Date" disabled>
+  							<input type="hidden" id="dvmid" class="form-control"/>
+						</div>
+					</div>
+					<div class="clearfix"></div>	
+					<div class="col-md-1 col-xs-1"></div>				
+					<div class="col-md-3 col-xs-3">
+						<label for="regsearchtype">Search By</label>
+						<div class="form-group">
+								<select data-role="none" class="form-control" id="regsearchtype"><option value="mobile">Mobile</option><option value="regno">Reg.No</option></select>
+						</div>
+					</div>   
+					<div class="col-md-6 col-xs-6">
+						<label for="searchtxt">Search Text</label>
+						<div class="form-group">
+  							<input type="text" id="searchtxt" class="form-control" placeholder="Search Txt" maxlength="50" onkeydown='app.patientSearchKeyDown(event,this)'>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "><button class="btn btn-default" onclick="app.searchPatient()"><span class="ti-search" style="vertical-align:center"></span></button></div>
+					<div class="clearfix"></div>					
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="regno">Reg.No</label>
+  							<input type="text" id="regcode" class="form-control" placeholder="Reg No" inputType="NUMERIC"  decimal="0" mandatory="1"   maxlength="50" onkeydown='return validate(this,event)' disabled>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="smobileno">Mobile</label>
+  							<input type="text" id="smobileno" class="form-control" placeholder="Mobile" inputType="NUMERIC"  decimal="0" mandatory="1"   maxlength="10" onkeydown='return validate(this,event)'>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>				
+					<div class="clearfix"></div>				
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group mbotto">
+							<label for="spatientname">Name</label>
+  							<input type="text" id="spatientname" class="form-control" placeholder="Name" inputType="ALPHANUMERIC"  decimal="0" mandatory="1"   maxlength="50" onkeydown='return validate(this,event)'>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="spatientage">Age</label>
+  							<input type="text" id="spatientage" class="form-control" placeholder="Age" inputType="NUMERIC"  decimal="0" mandatory="1"   maxlength="3" onkeydown='return validate(this,event)'>							
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="sgender">Gender</label>
+							<select id="sgender" data-role="none" class="form-control"><option value="M">Male</option><option value="F">Female</option></select></div>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>				
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="scity">City</label>
+  							<input type="text" id="scity" class="form-control" placeholder="City" inputType="ALPHANUMERIC"  decimal="0" mandatory="1"   maxlength="50" onkeydown='return validate(this,event)'>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+	    			<div class="marAjTop1">
+	     				<div class="col-md-1 col-xs-1"></div>
+	    					<div class="col-md-10 col-xs-10 mpZ text-center">
+	        				<div class="col-md-12 col-xs-12"><button class="btn btn-default loginBut" type="button" onclick="app.createAppointment()" data-toggle="dropdown">Generate Token</button></div> 
+	        			</div> 
+	     				<div class="col-md-1 col-xs-1"></div>
+		        	</div>
+			</div>
+    	</div>		
+	</div>
+
+	<div data-role="page" id="patientlist">
+		<div class="container">
+   			<!--headerlogin-->
+				<div class="headerBx">
+  					<div class="col-md-2 col-xs-2">
+  						<span class="ti-angle-left ic1CoTx" onclick="app.backFromPatientList()"></span>
+    				</div>
+    				<div class="col-md-8 col-xs-8 text-center fotSizBg">Patient List</div>
+    				<div class="col-md-2 col-xs-2 text-right">
+    					<button class="btn btn-add" id="btnBookAppointment" onclick="app.bookAppointment()">Create</button>
+    				</div>
+  				</div>   			
+  			<!--login-->
+  			<div class="clearfix"></div>	
+			<div class="col-md-12 col-xs-12 mpZ mrTop">
+    			<div class="listTp" id="patients" style=" margin-left:20px;margin-right:20px;">
+    				<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+				    	<div class="col-md-8 col-xs-8">
+      					<h3 class="prhead">Patient Name 1</h3>
+      					</div>
+      					<div class="col-md-2 col-xs-2 padAdj text-right">
+      						<div><button type="button" class="btn btn-info" >Token 1</button>
+				    		</div>
+				    	</div>
+      					<div class="col-md-2 col-xs-2 padAdj text-right">
+      						<div><button type="button" class="btn btn-info" >Select</button>
+				    		</div>
+				    	</div>  
+				    </div>
+				    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+				    	<div class="col-md-8 col-xs-8">
+      					<h3 class="prhead">Patient Name 2</h3>
+      					</div>
+      					<div class="col-md-2 col-xs-2 padAdj text-right">
+      						<div><button type="button" class="btn btn-info" >Token 2</button>
+				    		</div>
+				    	</div>
+      					<div class="col-md-2 col-xs-2 padAdj text-right">
+      						<div><button type="button" class="btn btn-info" >Select</button>
+				    		</div>
+				    	</div>  
+				    </div>
+				    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+				    	<div class="col-md-8 col-xs-8">
+      					<h3 class="prhead">Patient Name 3</h3>
+      					</div>
+						<div class="col-md-2 col-xs-2 padAdj text-right">
+      						<div><button type="button" class="btn btn-info" >Token 3</button>
+				    		</div>
+				    	</div>
+      					<div class="col-md-2 col-xs-2 padAdj text-right">
+      						<div><button type="button" class="btn btn-info" >Select</button>
+				    		</div>
+				    	</div>				  
+				    </div>
+      			</div>
+        	</div>
+        	<div class="footer">
+    			<div class="footerIn text-center fooCol"> &copy; CISSOL</div>
+      		</div>
+        </div>
+	</div>	
+	
+	<div data-role="page" id="updateinitialstatus">
+			<div class="container">
+   			<!--headerlogin-->
+				<div class="headerBx">
+  					<div class="col-md-2 col-xs-2">
+  						<span class="ti-angle-left ic1CoTx" onclick="app.showPatientList('initialstatus')"></span>
+    				</div>
+    				<div class="col-md-8 col-xs-8 text-center fotSizBg">Initial Investigation</div>
+    				<div class="col-md-2 col-xs-2 text-right">
+    				</div>
+  				</div>   			
+  			<!--login-->
+  			<div class="clearfix"></div>
+   			<div class="col-md-12 col-xs-12">
+				<div class="marAjTop" style="margin-top:90px">
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group mbotto">
+							<label for="ipatientname">Name</label>
+  							<input type="text" id="ipatientname" class="form-control" placeholder="Name" disabled>
+  							<input type="hidden" id="appid" class="form-control" placeholder="Name" disabled>
+  							<input type="hidden" id="ipatientcode" class="form-control" placeholder="Name" disabled>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="ipatientage">Age</label>
+  							<input type="text" id="ipatientage" class="form-control" placeholder="Age" disabled>							
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="igender">Gender</label>
+							<label id="igender">Gender</label>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>				
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="temperature">Temperature</label>
+  							<input type="text" id="temperature" class="form-control" placeholder="Temperature" inputType="DECIMAL"  decimal="2" mandatory="0"   maxlength="10" onkeydown='return validate(this,event)'>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>					
+					<div class="clearfix"></div>				
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="weight">Weight</label>
+  							<input type="text" id="weight" class="form-control" placeholder="Weight" inputType="NUMERIC"  decimal="0" mandatory="0"   maxlength="3" onkeydown='return validate(this,event)'>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					<div class="clearfix"></div>				
+					<div class="col-md-1 col-xs-1"></div>   
+					<div class="col-md-10 col-xs-10">
+						<div class="form-group">
+							<label for="bp">BP</label>
+  							<input type="text" id="bp" class="form-control" placeholder="BP" inputType="NUMERIC"  decimal="0" mandatory="0"   maxlength="4" onkeydown='return validate(this,event)'>
+						</div>
+					</div>
+					<div class="col-md-1 col-xs-1 "></div>
+					
+					<div class="clearfix"></div>
+	    			<div class="marAjTop1">
+	     				<div class="col-md-1 col-xs-1"></div>
+	    					<div class="col-md-10 col-xs-10 mpZ text-center">
+	        				<div class="col-md-12 col-xs-12"><button class="btn btn-default loginBut" type="button" onclick="app.updateInitialInvestigation()" data-toggle="dropdown">Update</button></div> 
+	        			</div> 
+	     				<div class="col-md-1 col-xs-1"></div>
+		        	</div>
+			</div>
+    		<div class="footer">
+    			<div class="footerIn text-center fooCol"> &copy; CISSOL</div>
+      		</div>
+    	</div>		
+	</div>
+	</div>
+	<div data-role="page" id="doctorconsole">
+		<div class="container">
+   			<!--headerlogin-->
+				<div class="headerBx">
+					<div class="col-md-1 col-xs-1">
+						<span class="ti-angle-left ic1CoTx" onclick="app.showPatientList('doctorconsole')"></span>
+					</div>
+  					<div class="col-md-6 col-xs-6 mpZero">
+  						<div class="fotSizBg1"><span id="dpatientname">Patient Name</span><input type="hidden" id="dpatientcode"/><input type="hidden" id="dappid"/></div>
+  						<div class="prTxt3"><span id="dage">Age</span> | <span id="dgender">M</span></div>
+    				</div>
+    				<div class="col-md-4 col-xs-4 text-right fotSizBg1" style="color:#fff">
+    					<div class="fotSizBg" id="ovisit"></div>
+    				</div>
+  				</div>   			
+  			<!--login-->
+  			<div class="clearfix"></div>
+  			<div class="col-md-12 col-xs-12 mpZ mrTop" style="margin-top:89px">	
+ 			<div class="categ">
+    			<ul style="padding:0;" id="dctopnav">
+		    		<li class="categSel" onclick="app.showDiagnose(this)">Diagnose</li>
+		    		<li onclick="app.showClinicalTests(this)">Tests</li>
+		    		<li onclick="app.showPrescription(this)">Prescription</li>
+		    		<li onclick="app.showFees(this)">Fees/Next Visit</li>
+		    		<li onclick="app.showNextVisit(this)" style="display:none">Next Visit</li>
+	    		</ul>
+    		</div>
+    		</div>
+    			<div class="col-md-12 col-xs-12 mpZ mrTop" id="diagnose" style="display:none">
+    				<div class="col-md-6 col-xs-6">
+    					<div class="col-md-12 col-xs-12" style="min-height:50px">
+    						<div class="col-md-3 col-xs-3"><label for="dweight">Weight</label><input type="text" id="dweight" class="form-control" placeholder="weight" inputType="NUMERIC"  decimal="0" mandatory="0"   maxlength="3" onkeydown='return validate(this,event)'/></div>
+    						<div class="col-md-3 col-xs-3"><label for="dtemp">Temp</label><input type="text" id="dtemperature" class="form-control" placeholder="temp" inputType="DECIMAL"  decimal="2" mandatory="1"   maxlength="5" onkeydown='return validate(this,event)'/></div>
+    						<div class="col-md-3 col-xs-3"><label for="dbp">BP</label><input type="text" id="dbp" class="form-control" placeholder="bp" inputType="NUMERIC"  decimal="0" mandatory="0"   maxlength="10" onkeydown='return validate(this,event)'/><input type="hidden" id="dvisitdate" class="form-control" placeholder="vd"/></div>
+    					</div>
+    					<div class="col-md-12 col-xs-12" style="min-height:400px">
+    						<div class="col-md-12 col-xs-12">
+    						<textarea id="diagnosenotes" class="form-control" data-role="none" col=200 row=200 style="min-height:400px!important;min-width:100%"></textarea>
+    						<input type="hidden" id="pdnid" value="0"/>
+    						</div>
+    						<div class="col-md-12 col-xs-12">
+    							<button class="btn btn-default loginBut" type="button" onclick="app.saveDiagnose()" data-toggle="dropdown">Save</button>
+    						</div>
+    					</div>    					
+    				</div>
+    				<div class="col-md-6 col-xs-6">
+						<div class="listTp" id="historylist" style=" margin-left:20px;margin-right:20px;">
+						    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+						    <div class="col-md-12 col-xs-12">
+      							<h3 class="prhead1">08/07/2015</h3>
+      							<div id="previous_1">
+      								asfnsfjbsfb sf
+      								sf,sm f sg
+      								sgsgn sm gsg
+      								sglsngdlksdn
+      							</div>
+      						</div>
+      						</div>
+      						<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+						    <div class="col-md-12 col-xs-12">
+      							<h3 class="prhead1">05/07/2015</h3>
+      							<div id="previous_1">
+      								asfnsfjbsfb sf
+      								sf,sm f sg
+      								sgsgn sm gsg
+      								sglsngdlksdn
+      							</div>
+      						</div>
+      						</div>
+      						<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+						    <div class="col-md-12 col-xs-12">
+      							<h3 class="prhead1">01/07/2015</h3>
+      							<div id="previous_1">
+      								asfnsfjbsfb sf
+      								sf,sm f sg
+      								sgsgn sm gsg
+      								sglsngdlksdn
+      							</div>
+      						</div>
+      						</div>
+				    	</div>  
+				    </div>
+				</div>
+				<div class="col-md-12 col-xs-12 mpZ mrTop" id="tests" style="display:none">
+    				<div class="col-md-6 col-xs-6" style="overflow:auto" >
+    					<div class="col-md-12 col-xs-12" data-role="none" style="height:450px;overflow:auto">
+    						<a id='lnkDialog' href="#buitemsdlg" data-rel="popup" data-transition="pop" style='display:none;'></a>
+    						<div class="col-md-12 col-xs-12" style="min-height:450px" id="bunames">
+							    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2" onclick="app.showBUItems()">
+      								<div class="col-md-12 col-xs-12">
+      								<h3 class="prhead1">BU1</h3>
+      								<div> </div>
+							        </div>
+							    </div>
+							    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      								<div class="col-md-12 col-xs-12">
+      								<h3 class="prhead1">BU1</h3>
+      								<div> </div>
+							        </div>
+							    </div>
+							     								<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      								<div class="col-md-12 col-xs-12">
+      								<h3 class="prhead1">BU1</h3>
+      								<div> </div>
+							        </div>
+							    </div>
+							     								<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      								<div class="col-md-12 col-xs-12">
+      								<h3 class="prhead1">BU1</h3>
+      								<div> </div>
+							        </div>
+							    </div>
+							     								<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      								<div class="col-md-12 col-xs-12">
+      								<h3 class="prhead1">BU1</h3>
+      								<div> </div>
+							        </div>
+							    </div>
+							     								<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      								<div class="col-md-12 col-xs-12">
+      								<h3 class="prhead1">BU1</h3>
+      								<div> </div>
+							        </div>
+							    </div>
+							     								<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      								<div class="col-md-12 col-xs-12">
+      								<h3 class="prhead1">BU1</h3>
+      								<div> </div>
+							        </div>
+							    </div>
+							     								<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      								<div class="col-md-12 col-xs-12">
+      								<h3 class="prhead1">BU1</h3>
+      								<div> </div>
+							        </div>
+							    </div>
+							     								<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      								<div class="col-md-12 col-xs-12">
+      								<h3 class="prhead1">BU1</h3>
+      								<div> </div>
+							        </div>
+							    </div>
+							     
+    						</div>
+    					</div>    					
+    				</div>
+    				<div class="col-md-6 col-xs-6">
+						<div class="listTp" id="buitemslist" style=" margin-left:20px;margin-right:20px;">
+						    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+						    <div class="col-md-11 col-xs-11">
+      							<h3 class="prhead1">BU Item 1</h3>
+      							<div id="previous_1">
+      								Notes 1
+      							</div>
+      						</div>
+      						<div class="col-md-1 col-xs-1">
+      							<span class="ti-trash"></span>
+      						</div>
+      						</div>
+						    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+						    <div class="col-md-11 col-xs-11">
+      							<h3 class="prhead1">BU Item 2</h3>
+      							<div id="previous_1">
+      								Notes 2
+      							</div>
+      						</div>
+      						<div class="col-md-1 col-xs-1">
+      							<span class="ti-trash"></span>
+      						</div>
+      						</div>
+						    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+						    <div class="col-md-11 col-xs-11">
+      							<h3 class="prhead1">BU Item 3</h3>
+      							<div id="previous_1">
+      								Notes 3
+      							</div>
+      						</div>
+      						<div class="col-md-1 col-xs-1">
+      							<span class="ti-trash"></span>
+      						</div>
+      						</div>
+				    	</div>  
+				    </div>				    					
+    		</div>
+    		<div class="col-md-12 col-xs-12 mpZ mrTop" id="prescription" style="display:block">
+    				<div class="col-md-8 col-xs-8" style="overflow:auto" >
+    					<div class="col-md-12 col-xs-12" style="min-height:50px">
+	    					<div class="col-md-3 col-xs-3 text-right"><select id="searchtype"><option value='medicine'>Medicine</option><option value='generic'>Generic</option></select></div>
+	    					<div class="col-md-7 col-xs-7"><input id="medicinesearch" type="text" class="form-control" onkeydown="app.medicineSearchKeyDown(event,this)"/></div>
+	    					<div class="col-md-1 col-xs-1 text-center"><button class="btn btn-default" data-role="none" onclick="app.constructMedicineItemsLov()"><span class="ti-search"></span></button></div>
+    					</div>
+    					<div class="col-md-12 col-xs-12" data-role="none" style="height:450px;overflow:auto">
+    						<div class="col-md-12 col-xs-12" style="min-height:450px" id="doctormedicines" >
+									<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+										  <div class="col-md-11 col-xs-11 mpZ">
+										      <div class="col-md-6 col-xs-5">
+	      											<h3 class="prhead1">Medicine 1</h3>
+	      											<div class="clearfix"></div>
+											   </div>
+	  											<div class="col-md-3 col-xs-3 padAdj text-right">
+		  											<div class="input-group">
+	          											<input data-role="none" type="text" id="numberofdays" placeholder="No Of Days" class="form-control">
+	         										</div>
+											    </div>
+											    <div class="col-md-3 col-xs-3 padAdj text-right">
+		  											<div class="input-group">
+	          											<input data-role="none" type="text" id="remarks" placeholder="Addl.Info" class="form-control">
+	         										</div>
+											    </div>
+											    <div class="clearfix"></div>
+											    <div class="col-md-12 col-xs-12 mpZ" style="padding-top:10px">
+	        										<div class="col-md-1 col-xs-1 mpZ text-center">
+	          											<div class="">Courses</div>
+	        										</div>
+	        										<div class="col-md-2 col-xs-2 mpZ">
+	          											<div class="input-group">
+	          												<select class="form-control" data-role="none"><option value='0'>None</option><option value='0.5'>Half</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select>
+	         											</div>
+	          										</div>
+	          										<div class="col-md-2 col-xs-2 mpZ">
+	          											<div class="input-group">
+	          												<select class="form-control" data-role="none"><option value='0'>None</option><option value='0.5'>Half</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select>
+	         											</div>
+	          										</div>
+	          										<div class="col-md-2 col-xs-2 mpZ">
+	          											<div class="input-group">
+	          												<select class="form-control" data-role="none"><option value='0'>None</option><option value='0.5'>Half</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select>
+	         											</div>
+	          										</div>
+	          										<div class="col-md-2 col-xs-2 mpZ">
+	          											<div class="input-group">
+	          												<select class="form-control" data-role="none"><option value='0'>None</option><option value='0.5'>Half</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select>
+	         											</div>
+	          										</div>
+	          										<div class="col-md-3 col-xs-3 mpZ">
+	          											<div class="input-group">
+	          												<select class="form-control" data-role="none"><option value='AM'>After Meal</option><option value='BM'>Before Meal</option></select>
+	         											</div>
+	          										</div>          										          										
+	        									</div>
+	        							 </div>
+	        							 <div class="col-md-1 col-xs-1 mpZ">
+	        							 		<div class="col-md-12 col-xs-12 padAdj text-right mpZ">
+	          										<button type="button" class="btn btn-info" >Add</button>
+											    </div>
+	        							 	
+	        							 </div>
+        							</div>
+    						</div>
+    					</div>    					
+    				</div>
+    				<div class="col-md-4 col-xs-4">
+						<div class="listTp" id="medicineslist" style=" margin-left:20px;margin-right:20px;">
+						    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+						    <div class="col-md-8 col-xs-8">
+      							<h3 class="prhead1">Medicine Name 1</h3>
+      							<div class="prTxt"><span>1-1-1-1 <span class="badge">AB</span> <span class="badge">10</span></span></div>
+      						</div>
+      						<div class="col-md-3 col-xs-3">
+      							<span class="ti-trash"></span>
+      						</div>
+      						</div>
+						    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+						    <div class="col-md-11 col-xs-11">
+      							<h3 class="prhead1">BU Item 2</h3>
+      							<div id="previous_1">
+      								Notes 2
+      							</div>
+      						</div>
+      						<div class="col-md-1 col-xs-1">
+      							<span class="ti-trash"></span>
+      						</div>
+      						</div>
+						    <div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+						    <div class="col-md-11 col-xs-11">
+      							<h3 class="prhead1">BU Item 3</h3>
+      							<div id="previous_1">
+      								Notes 3
+      							</div>
+      						</div>
+      						<div class="col-md-1 col-xs-1">
+      							<span class="ti-trash"></span>
+      						</div>
+      						</div>
+				    	</div>  
+				    </div>				    					
+    		</div>
+    		<div class="col-md-12 col-xs-12 mpZ mrTop" id="fees" style="display:none">
+					<div class="col-md-12 col-xs-12" style="min-height:50px">
+						<div class="col-md-6 col-xs-6">
+								<label for="dfees">Fees</label>
+								<input type="text" id="dfees" class="form-control" placeholder="Fees" inputType="NUMERIC"  decimal="0" mandatory="0"   maxlength="5" onkeydown='return validate(this,event)'/>
+						</div>
+						<div class="col-md-6 col-xs-6">
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-6 col-xs-6">
+								<label for="dfeestatus">Fee Status</label>
+								<select class="form-control" data-role="none" id="dfeestatus"><option value='0'>Pending</option><option value='1'>Received</option></select>
+						</div>
+						<div class="col-md-6 col-xs-6">
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-6 col-xs-6">
+							<label for="nextvisit">Next Visit</label>
+							<input type="text" id="dnextvisit" class="form-control" placeholder="Number of Days" inputType="NUMERIC"  decimal="0" mandatory="0"   maxlength="3" onkeydown='return validate(this,event)'/>
+						</div>
+						<div class="col-md-6 col-xs-6">
+						</div>
+					</div>
+					<div class="col-md-5 col-xs-5">
+    							<button class="btn btn-default" type="button" onclick="app.saveFees()" data-toggle="dropdown">Save</button>
+    				</div>					
+    		</div>
+    		<div class="col-md-12 col-xs-12 mpZ mrTop" id="nextvisit" style="display:none">
+    			Next Visit
+    		</div>    	
+    	</div>    	
+    	</div>
+    	<div id="buitemsdlg" data-role="popup" data-corners="false" data-theme="none" data-shadow="false">
+    	<a href="#" data-rel="back">Close</a>
+    	<div class="container">    		
+			<div class="col-md-12 col-xs-12 mpZ mrTop">
+    			<div class="col-md-12 col-xs-12">
+					<div class="col-md-12 col-xs-12" style="min-height:50px">
+    					<div class="col-md-5 col-xs-5 text-right"><label for="buitemssearch">SEARCH <span id="buname"></span> : </label></div>
+    					<div class="col-md-6 col-xs-6"><input id="buitemsearch" type="text" class="form-control" onkeydown="app.testSearchKeyDown(event,this)"/></div>
+    					<div class="col-md-1 col-xs-1"><span class="ti-search" onclick="app.searchBUItems()"></span><input type="hidden" id="bucode"/></div>
+    				</div>
+    				<div class="col-md-12 col-xs-12" data-role="none" style="height:450px;overflow:auto">
+    					<div class="col-md-12 col-xs-12" style="min-height:450px" id="buitems">
+							<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      							<div class="col-md-5 col-xs-5">
+      								<h3 class="prhead1">BU Item 1</h3>
+      							</div> 
+      							<div class="col-md-6 col-xs-6 padAdj text-right">
+      								<textarea id="txtTestNotes" class="form-control" data-role="none" col=200 row=200></textarea>     
+      							</div>
+      							<div class="col-md-1 col-xs-1 padAdj text-right">
+      								<button type="button" class="btn btn-info" >Add</button>     
+      							</div>	
+      						</div>
+      						<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      							<div class="col-md-5 col-xs-5">
+      								<h3 class="prhead1">BU Item 1</h3>
+      							</div> 
+      							<div class="col-md-6 col-xs-6 padAdj text-right">
+      								<textarea id="txtTestNotes" class="form-control" data-role="none" col=200 row=200></textarea>     
+      							</div>
+      							<div class="col-md-1 col-xs-1 padAdj text-right">
+      								<button type="button" class="btn btn-info" >Add</button>     
+      							</div>	
+      						</div>
+      						<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      							<div class="col-md-5 col-xs-5">
+      								<h3 class="prhead1">BU Item 1</h3>
+      							</div> 
+      							<div class="col-md-6 col-xs-6 padAdj text-right">
+      								<textarea id="txtTestNotes" class="form-control" data-role="none" col=200 row=200></textarea>     
+      							</div>
+      							<div class="col-md-1 col-xs-1 padAdj text-right">
+      								<button type="button" class="btn btn-info" >Add</button>     
+      							</div>	
+      						</div>
+      						      						<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      							<div class="col-md-5 col-xs-5">
+      								<h3 class="prhead1">BU Item 1</h3>
+      							</div> 
+      							<div class="col-md-6 col-xs-6 padAdj text-right">
+      								<textarea id="txtTestNotes" class="form-control" data-role="none" col=200 row=200></textarea>     
+      							</div>
+      							<div class="col-md-1 col-xs-1 padAdj text-right">
+      								<button type="button" class="btn btn-info" >Add</button>     
+      							</div>	
+      						</div>
+      						<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      							<div class="col-md-5 col-xs-5">
+      								<h3 class="prhead1">BU Item 1</h3>
+      							</div> 
+      							<div class="col-md-6 col-xs-6 padAdj text-right">
+      								<textarea id="txtTestNotes" class="form-control" data-role="none" col=200 row=200></textarea>     
+      							</div>
+      							<div class="col-md-1 col-xs-1 padAdj text-right">
+      								<button type="button" class="btn btn-info" >Add</button>     
+      							</div>	
+      						</div>      						
+      						      						<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      							<div class="col-md-5 col-xs-5">
+      								<h3 class="prhead1">BU Item 1</h3>
+      							</div> 
+      							<div class="col-md-6 col-xs-6 padAdj text-right">
+      								<textarea id="txtTestNotes" class="form-control" data-role="none" col=200 row=200></textarea>     
+      							</div>
+      							<div class="col-md-1 col-xs-1 padAdj text-right">
+      								<button type="button" class="btn btn-info" >Add</button>     
+      							</div>	
+      						</div>
+      						<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      							<div class="col-md-5 col-xs-5">
+      								<h3 class="prhead1">BU Item 1</h3>
+      							</div> 
+      							<div class="col-md-6 col-xs-6 padAdj text-right">
+      								<textarea id="txtTestNotes" class="form-control" data-role="none" col=200 row=200></textarea>     
+      							</div>
+      							<div class="col-md-1 col-xs-1 padAdj text-right">
+      								<button type="button" class="btn btn-info" >Add</button>     
+      							</div>	
+      						</div>      						
+      						      						<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      							<div class="col-md-5 col-xs-5">
+      								<h3 class="prhead1">BU Item 1</h3>
+      							</div> 
+      							<div class="col-md-6 col-xs-6 padAdj text-right">
+      								<textarea id="txtTestNotes" class="form-control" data-role="none" col=200 row=200></textarea>     
+      							</div>
+      							<div class="col-md-1 col-xs-1 padAdj text-right">
+      								<button type="button" class="btn btn-info" >Add</button>     
+      							</div>	
+      						</div>
+      						<div class="col-md-12 col-xs-12 mpZ borBot1 borBot2">
+      							<div class="col-md-5 col-xs-5">
+      								<h3 class="prhead1">BU Item 1</h3>
+      							</div> 
+      							<div class="col-md-6 col-xs-6 padAdj text-right">
+      								<textarea id="txtTestNotes" class="form-control" data-role="none" col=200 row=200></textarea>     
+      							</div>
+      							<div class="col-md-1 col-xs-1 padAdj text-right">
+      								<button type="button" class="btn btn-info" >Add</button>     
+      							</div>	
+      						</div>      						      						      						
+						</div>
+					</div>
+				</div>
+			</div>    					
+		</div>
+		</div>    	
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+    $(document).ready(function(){
+    	app.initialize();
+    	$('#visitdate').datepicker({dateFormat:'dd/mm/yy'});
+    	$('#fromtime').timepicker({timeFormat: 'hh:mm TT',dateFormat:''});
+    	$('#totime').timepicker({timeFormat: 'hh:mm TT',dateFormat:''});
+    });
+    </script>        
+    </body>    
+</html>

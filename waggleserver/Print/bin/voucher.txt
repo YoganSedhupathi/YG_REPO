@@ -1,0 +1,36 @@
+               HEALTH CARE SPECIALITY CLINIC               
+                   27,Javulikara Street                    
+                    Tiruletur - 610 001                    
+                   Phone - 242292,240292                   
+                                                           
+V.No           : nullDate   : 07/02/2024        
+Received From  : Sakkara                                     
+Sum of Rs.     : One Hundred Forty Five Only                 
+Towards  :
+-----------------------------------------------------------
+                 Description                     Amount    
+-----------------------------------------------------------
+ InvNo: inv24 Dated 29/01/2024                       150.00
+-----------------------------------------------------------
+                                Total Amount:        150.00
+                                                           
+Mode           : CHEQUE             Amount(Rs): 145.00            
+Bank A/c       : IOB                Cheque No: null
+                                                           
+                                                           
+Prepared By                   Approved By                  
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           

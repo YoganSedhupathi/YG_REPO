@@ -1,0 +1,6 @@
+Feb 17, 2024 11:58:47 AM com.print.util.LoggerHandler setup
+CONFIG: Configuration done.
+Feb 17, 2024 11:58:47 AM com.print.util.LoggerHandler setup
+FINE: Finer logged
+Feb 17, 2024 11:58:47 AM com.print.util.LoggerHandler setup
+FINER: Finest example on LOGGER handler completed.

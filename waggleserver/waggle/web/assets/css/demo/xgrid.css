@@ -1,0 +1,496 @@
+/*
+IMPORTANT:
+In order to preserve the uniform grid appearance, all cell styles need to have padding, margin and border sizes.
+No built-in (selected, editable, highlight, flashing, invalid, loading, :focus) or user-specified CSS
+classes should alter those!
+*/
+
+.xgrid-header.ui-state-default, .xgrid-headerrow.ui-state-default {
+  width: 100%;
+  overflow: hidden;
+  border-left: 0px;
+}
+
+.xgrid-header-columns, .xgrid-headerrow-columns {
+  position: relative;
+  white-space: nowrap;
+  cursor: default;
+  overflow: hidden;
+}
+
+.xgrid-header-column.ui-state-default {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  height: 28px;
+  line-height: 28px;
+  margin: 0;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+  float: left;
+  text-align:center;  
+  font-weight:bold;
+  background: #a7bec8;
+}
+
+.xgrid-headerrow-column.ui-state-default {
+  padding: 4px;
+}
+
+.xgrid-header-column-sorted {
+  font-style: italic;
+}
+
+.xgrid-sort-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 5px;
+  margin-left: 4px;
+  margin-top: 6px;
+  float: left;
+}
+
+.xgrid-sort-indicator-desc {
+  background: url(images/sort-desc.gif);
+}
+
+.xgrid-sort-indicator-asc {
+  background: url(images/sort-asc.gif);
+}
+
+.xgrid-resizable-handle {
+  position: absolute;
+  font-size: 0.1px;
+  display: block;
+  cursor: col-resize;
+  width: 4px;
+  right: 0px;
+  top: 0;
+  height: 100%;
+}
+
+.xgrid-sortable-placeholder {
+  background: silver;
+}
+
+.grid-canvas {
+  position: relative;
+  outline: 0;
+  position: relative;
+border-bottom: 1px solid #ddd;
+height: 35px;
+}
+
+.xgrid-row.ui-widget-content, .xgrid-row.ui-state-active {
+  position: absolute;
+  border: 0px;
+  width: 100%;
+}
+
+.xgrid-cell, .xgrid-headerrow-column {
+  position: absolute;
+  border: 1px solid transparent;
+  border-right: 1px dotted silver;
+  border-bottom-color: silver;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  z-index: 1;
+  padding: 1px 2px 2px 1px;
+  margin: 0;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.xgrid-group {
+}
+
+.xgrid-group-toggle {
+  display: inline-block;
+}
+
+.xgrid-cell.highlighted {
+  background: lightskyblue;
+  background: rgba(0, 0, 255, 0.2);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.xgrid-cell.flashing {
+  border: 1px solid red !important;
+}
+
+.xgrid-cell.editable {
+  z-index: 11;
+  overflow: visible;
+  background: white;
+  border-color: black;
+  border-style: solid;
+}
+
+.xgrid-cell:focus {
+  outline: none;
+}
+
+.xgrid-reorder-proxy {
+  display: inline-block;
+  background: blue;
+  opacity: 0.15;
+  filter: alpha(opacity = 15);
+  cursor: move;
+}
+
+.xgrid-reorder-guide {
+  display: inline-block;
+  height: 2px;
+  background: blue;
+  opacity: 0.7;
+  filter: alpha(opacity = 70);
+}
+
+.xgrid-selection {
+  z-index: 10;
+  position: absolute;
+  border: 2px dashed black;
+}
+
+
+.xgrid-header-columns {
+ 
+   
+    font-weight: bold;
+	background:#f1f8fb;
+}
+
+.xgrid-header-column {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.xgrid-header-column-sel {
+  background-image:-moz-linear-gradient(center top , #FFFFFF, #b6b5b5);
+  border-right: 1px solid silver;
+}
+
+.xgrid-header-column:hover, .xgrid-header-column-active {
+  background:#a7bec8;
+}
+
+.xgrid-headerrow {
+  background: #a7bec8;
+}
+
+.xgrid-headerrow-column {
+  background: #a7bec8;
+  border-bottom: 0;
+  height: 100%;
+}
+
+.xgrid-footer.ui-state-default, .xgrid-footerrow.ui-state-default {
+  width: 100%;
+  overflow: hidden;
+  border-left: 0px;
+}
+
+.xgrid-footer-columns, .xgrid-footerrow-columns {
+  position: relative;
+  white-space: nowrap;
+  cursor: default;
+  overflow: hidden;
+}
+
+.xgrid-footer-column.ui-state-default {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  height: 16px;
+  line-height: 16px;
+  margin: 0;
+  padding: 4px;
+  border-right: 1px solid silver;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+  float: left;
+}
+
+.xgrid-footerrow-column.ui-state-default {
+  padding: 4px;
+}
+
+.xgrid-footer-columns {
+  border-bottom: 1px solid silver;
+}
+
+.xgrid-footer-column {
+  border-right: 1px solid silver;
+}
+
+.xgrid-column-footer{
+  font-weight: bold;
+  font-size:13px;
+  font-color:#000;
+}
+.xgrid-row.ui-state-active {
+  background: #F5F7D7;
+}
+
+.xgrid-row {
+  position: absolute;
+  background: white;
+  border: 0px;
+  line-height: 20px;
+}
+
+.xgrid-row.selected {
+  z-index: 10;
+  background: #DFE8F6;
+}
+
+.xgrid-cell {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.xgrid-group {
+  border-bottom: 2px solid silver;
+}
+
+.xgrid-group-toggle {
+  width: 9px;
+  height: 9px;
+  margin-right: 5px;
+}
+
+.xgrid-group-toggle.expanded {
+  background: url(../images/collapse.gif) no-repeat center center;
+}
+
+.xgrid-group-toggle.collapsed {
+  background: url(../images/expand.gif) no-repeat center center;
+}
+
+.xgrid-group-totals {
+  color: gray;
+  background: white;
+}
+
+.xgrid-cell.selected {
+  background-color: beige;
+}
+
+.xgrid-cell.active {
+  border-color: gray;
+  border-style: solid;
+}
+
+.xgrid-sortable-placeholder {
+  background: silver !important;
+}
+
+.xgrid-row.odd {
+  background: #fafafa;
+}
+
+.xgrid-row.ui-state-active {
+  background: #F5F7D7;
+}
+
+.xgrid-row.loading {
+  opacity: 0.5;
+  filter: alpha(opacity = 50);
+}
+
+.xgrid-cell.invalid {
+  border-color: red;
+}
+
+
+.grid-header {
+  border: 1px solid gray;
+  border-bottom: 0;
+  border-top: 0;
+  background: url('../images/header-bg.gif') repeat-x center top;
+  color: black;
+  height: 24px;
+  line-height: 24px;
+}
+
+.grid-header label {
+  display: inline-block;
+  font-weight: bold;
+  margin: auto auto auto 6px;
+}
+
+.grid-header .ui-icon {
+  margin: 4px 4px auto 6px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.grid-header .ui-icon.ui-state-hover {
+  background-color: white;
+}
+
+.top-buttons {
+  background: linear-gradient(#6FACD5, #497BAE) repeat scroll 0 0 #5E87B0;
+  color: white;
+  height: 20px;
+}
+
+
+       
+      	input[disabled],
+		select[disabled],
+		textarea[disabled],
+		input[readonly],
+		select[readonly],
+		textarea[readonly] {
+		 cursor: not-allowed;
+		}   
+
+      /* Page header tweaks */
+      
+      .content >.container{
+        background-color: #fff;
+        border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+      }
+
+      /* Styles you shouldn't keep as they are for displaying this base example only */
+      .content .span10,
+      .content {
+        min-height: 500px;
+      }
+      /* Give a quick and non-cross-browser friendly divider */
+      .content {
+        margin-left: 0;
+        border-left: 1px solid #eee;
+      }
+
+      .topbar .btn {
+        border: 0;
+      }
+    /*   .row{
+	margin-left:0px;
+	margin-top:5px;
+      }*/
+      .ui-autocomplete {
+		max-height: 100px;
+		overflow-y: auto;
+		 prevent horizontal scrollbar */
+		overflow-x: hidden;
+		/* add padding to account for vertical scrollbar */
+		padding-right: 20px;
+	}
+     #mainButtonContainer{
+	padding:5px;
+	background-color: #454545;
+	border: 0 none;
+	height: 28px;
+      }
+    </style>
+    <style>
+    .slick-headerrow-column {
+      background: #d8e2e7;
+      height:28px;
+    }
+
+    .slick-headerrow-column input {
+      margin: 0;
+      padding: 0;
+      height:20px;
+    }
+    .imgCss{
+    }
+    .imgCss:hover{
+    	padding-left:20px;
+    	background:url(images/setup_wiz.png) no-repeat -13px -161px;
+    	cursor:pointer;
+    	font-weight:bold;
+    }
+    .buttonGroup{
+    padding:2px 2px 2px 5px;
+    background: rgb(181,189,200); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2I1YmRjOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjM2JSIgc3RvcC1jb2xvcj0iIzgyOGM5NSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyODM0M2IiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  rgba(181,189,200,1) 0%, rgba(130,140,149,1) 36%, rgba(40,52,59,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(181,189,200,1)), color-stop(36%,rgba(130,140,149,1)), color-stop(100%,rgba(40,52,59,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-8 */
+    
+    }
+
+
+.statushistory{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  }
+  
+.created,.updated,.edited,.scheduled{
+  padding: 5px;
+  margin: 0;
+  background:none;
+  }
+.createtitle{
+  background-color:#EDEFF4;
+  clear:both;
+  font-weight:bold;
+}
+.edittitle{
+  background-color:#EDEFF4;
+  clear:both;
+  font-weight:bold;
+}
+.statustitle{
+  background-color:#EDEFF4;
+  clear:both;
+  font-weight:bold;
+}
+.scheduletitle{
+  background-color:#EDEFF4;
+  clear:both;
+  font-weight:bold;
+}
+.by{
+	clear:both;
+	font-size:12px;
+	font-style:italic;
+	padding-bottom:5px;
+}
+.amcdetails{
+    background-color:#EDEFF4;
+    color: #000;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight:bold;
+    height: 20px;
+    line-height: 18px;
+    padding-left: 4px;
+    padding-top: 4px;
+    text-align:center;
+    width:100%
+}
+.amcproductdlg .ui-dialog-titlebar { display: none; }
+
+.alGrid{
+	border-color: inherit;
+    border-style: solid;
+    background: #fff;
+    border-bottom: 3px solid #f1f8fb;
+    height: 31px !important;
+}

@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [02/Sep/2023:10:37:01 +0530] "GET /waggle/ HTTP/1.1" 200 2911
+0:0:0:0:0:0:0:1 - - [02/Sep/2023:10:37:02 +0530] "GET /waggle/assets/css/bootstrap.css HTTP/1.1" 404 794
+0:0:0:0:0:0:0:1 - - [02/Sep/2023:10:37:02 +0530] "GET /waggle/assets/css/custom.css HTTP/1.1" 404 791
+0:0:0:0:0:0:0:1 - - [02/Sep/2023:10:37:02 +0530] "GET /waggle/assets/css/font-awesome.css HTTP/1.1" 404 797
+0:0:0:0:0:0:0:1 - - [02/Sep/2023:10:37:02 +0530] "GET /waggle/assets/css/icomoon.css HTTP/1.1" 404 792
+0:0:0:0:0:0:0:1 - - [02/Sep/2023:10:37:02 +0530] "GET /waggle/images/login_bg.jpg HTTP/1.1" 200 146696
+0:0:0:0:0:0:0:1 - - [02/Sep/2023:10:37:02 +0530] "GET /waggle/images/login_lgo.png HTTP/1.1" 200 3238
+0:0:0:0:0:0:0:1 - admin [02/Sep/2023:10:37:10 +0530] "POST /waggle/j_security_check HTTP/1.1" 303 -
+0:0:0:0:0:0:0:1 - admin [02/Sep/2023:10:37:10 +0530] "GET /waggle/ HTTP/1.1" 200 11788
+0:0:0:0:0:0:0:1 - admin [02/Sep/2023:10:37:10 +0530] "GET /waggle/js/jqimpl.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - admin [02/Sep/2023:10:37:10 +0530] "GET /waggle/assets/css/demo/custom_style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - admin [02/Sep/2023:10:37:10 +0530] "GET /waggle/js/actions.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - admin [02/Sep/2023:10:37:11 +0530] "GET /waggle/service/ajax?ic=0&id=userdefbranch,userbranch HTTP/1.1" 200 180
+0:0:0:0:0:0:0:1 - admin [02/Sep/2023:10:37:11 +0530] "GET /waggle/service/ajax?ic=0&id=usermenu&login_id=admin HTTP/1.1" 200 2683
+0:0:0:0:0:0:0:1 - admin [02/Sep/2023:10:37:16 +0530] "GET /waggle/doctorConsole.do?id=300014 HTTP/1.1" 200 26637

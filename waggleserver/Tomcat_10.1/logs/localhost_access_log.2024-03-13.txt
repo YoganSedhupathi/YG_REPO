@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - admin [13/Mar/2024:10:26:34 +0530] "GET /inventory/product.do HTTP/1.1" 200 24363
+0:0:0:0:0:0:0:1 - admin [13/Mar/2024:10:26:34 +0530] "GET /inventory/service/screen?screencode=110003 HTTP/1.1" 200 39725
+0:0:0:0:0:0:0:1 - admin [13/Mar/2024:10:26:34 +0530] "GET /inventory/service/report/metadata?id=8undefined HTTP/1.1" 200 2844
+0:0:0:0:0:0:0:1 - admin [13/Mar/2024:10:26:34 +0530] "GET /inventory/service/ajax?ic=0&id=actions&menuid=110003 HTTP/1.1" 200 158
+0:0:0:0:0:0:0:1 - admin [13/Mar/2024:10:26:35 +0530] "GET /inventory/service/report/data?id=8undefined&_search=false&nd=1710305794884&rows=25&page=1&sidx=a.pm_name&sord=asc&totalrows= HTTP/1.1" 200 5566
+0:0:0:0:0:0:0:1 - admin [13/Mar/2024:10:48:27 +0530] "GET /inventory/service/ajax?&id=maincategory&cs=0&F1=&ic=1 HTTP/1.1" 200 156

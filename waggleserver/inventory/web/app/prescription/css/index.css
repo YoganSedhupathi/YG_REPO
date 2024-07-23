@@ -1,0 +1,234 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+/*body {
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}*/
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+.netrate{
+	background-color:black !important;
+	color:yellow;
+	font-size:30px;
+    font-weight:bold;
+    vertical-align:middle;
+    width:100%;
+    height:100%;
+    margin-top:8px;
+}
+.subtitle{
+background-color: #5E87B0 !important;
+    border: 1px solid #456F9A;
+    color: #FFFFFF;
+    font-weight: 500;
+    text-shadow: 0 1px 0 #3E6790;
+    padding:2px;
+    margin-top:3px;
+    margin-bottom:3px;
+    }
+    
+    
+   .ui-grid-b img{
+	width:100%;
+	height:auto;
+	margin:10px;
+}
+.ui-grid-b div{
+	padding:10px;
+
+}
+.imgCaption{
+	width:100%;
+	text-align:center;
+	font-size:12px;
+	margin-top:-20px;
+
+}
+
+
+
+.prodclass li{ list-style:none; padding-left:10px; border-bottom:1px solid #eee; margin:0 20px; height:50px; line-height:50px; color:#e16402;}
+.span1{ float:right; padding-right:10px; margin:0; text-align:right; color:#000 !important;}
+.span2{ width:150px; margin-left:20px;}
+.hea{ font-size:18px; color:#555; font-weight:400; margin:15px 15px 0px 15px; border-bottom:1px solid #eee;}
+.hea1{ margin:0; padding:0; padding-bottom:10px; border-bottom:2px ridge #824690;}
+.pos{ background:#e0e0e0; padding:10px 5px;}
+ul.chek{ margin:0; padding:0;}
+.chek li{ list-style:none; margin:0; padding:0; padding:3px 4px;color:#333333;}
+.chek li span{ text-align:right; float:right;}
+.chk{ background-color: #824690; height:43px; border:1px solid #824690;color:#fff; font-size:20px; text-align:center;line-height:43px; margin-top:20px;}
+a.chk li{ color:#b4cc98; font-size:20px; text-align:center; line-height:43px;}
+.delicon{background:url("/img/delicon.png"); text-align:right; float:right font-weight:bold;color: red}
+.prodclass div{ display:none;}
+.prodclass:hover div{ display:block !important;  position:absolute; top:0; right:100px;}
+
+#catnavbutton{
+	position:relative;
+    height:35px;
+	font-size:14px;
+	color:#444;
+	width:100%;
+	float:left;
+}
+#catnav{
+	font-size:14px;
+	color:#444;
+	width:100%;
+	float:left;
+}
+#catnav ul{
+    list-style:none;
+}
+#catnav ul li{
+    border-bottom:1px solid #ccc;
+	height:35px;
+	margin:0;
+}
+#catnav ul li a{
+	border-left:3px solid #ccc;	
+    display:block;
+    height:35px;
+    color:#777;
+    outline:none;
+    font-weight:bold;
+    text-decoration:none;
+    line-height:35px;
+}
+#catnav ul li a:hover,
+#catnav ul li.selected a{
+	border-left:3px solid #824690;
+    background:#fff;
+    color:#000;
+}
+#carts{
+	margin-top:10px; 
+	padding-left:5px; 
+	font-weight:bold;
+}
+.label,
+.badge {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 11.844px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #999999;
+}
+
+.badge {
+  padding-right: 9px;
+  padding-left: 9px;
+  -webkit-border-radius: 9px;
+     -moz-border-radius: 9px;
+          border-radius: 9px;
+}
+.label-inverse,
+.badge-inverse {
+  background-color: #333333;
+}
+.label-success,
+.badge-success {
+  background-color: #468847;
+}
+.label-warning,
+.badge-warning {
+  background-color: #f89406;
+}
+.badge-info {
+  background-color: #3a87ad;
+}

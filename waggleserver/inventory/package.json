@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/jquery.dynatree": "^1.2.34",
+    "sweetalert": "^2.1.2"
+  }
+}
